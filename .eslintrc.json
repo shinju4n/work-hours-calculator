@@ -11,7 +11,7 @@
   "plugins": ["react"],
   "rules": {
     "react/no-unknown-property": ["error", { "ignore": ["css"] }],
-    "no-console": "error",
+    "no-console": "warn",
     "import/prefer-default-export": "off"
   }
 }

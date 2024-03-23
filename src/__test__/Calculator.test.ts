@@ -46,12 +46,7 @@ test("끝나는 시간을 알려주는 함수", () => {
   const firstTime = { hour: 40, minute: 30 };
   const secondTime = { hour: 30, minute: 30 };
   const totalWorkingTime = 80;
-  const result = calcEndTime(
-    firstTime,
-    secondTime,
-    totalWorkingTime,
-    new Date("2021-06-15T09:32:00")
-  );
+  const result = calcEndTime(firstTime, secondTime, totalWorkingTime, new Date("2021-06-15T09:32:00"));
   expect(result).toEqual({ hour: 18, minute: 32 });
   expect(convertTimeToString(result, "clock")).toBe("18시 32분");
 });
@@ -72,12 +67,7 @@ test("최종 테스트", () => {
   const firstTime = { hour: 40, minute: 30 };
   const secondTime = { hour: 30, minute: 30 };
   const totalWorkingTime = 80;
-  const result = calcEndTime(
-    firstTime,
-    secondTime,
-    totalWorkingTime,
-    new Date("2021-06-15T09:32:00")
-  );
+  const result = calcEndTime(firstTime, secondTime, totalWorkingTime, new Date("2021-06-15T09:32:00"));
   expect(result).toEqual({ hour: 18, minute: 32 });
   expect(convertTimeToString(result, "clock")).toBe("18시 32분");
   expect(convertTo12HourFormat(result)).toBe("오후 6시 32분");
