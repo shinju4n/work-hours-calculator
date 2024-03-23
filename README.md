@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# 금퇴언제?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 목표
 
-## Available Scripts
+몇시에 퇴근해야하는지 시간을 계산하기 귀찮아서 만든 계산기 (웹앱)
 
-In the project directory, you can run:
+## Flow
 
-### `npm start`
+주 몇시간 근무하세요?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+정산 단위는 몇 주세요?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+몇시간 채우셨어요?
 
-### `npm test`
+반차 연차 포함인가요?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+→ 포함 : 다음 스텝
 
-### `npm run build`
+→ 미포함 : 반차, 연차, 반반차, 인풋 받기
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+점심시간이 지났나요?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+⇒
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+현재 총 몇 시간 근무 하셨어요
 
-### `npm run eject`
+현재 시간 기준으로 몇시에 퇴근하시면 되겠네요!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- @emotion
+- react-hook-form
+- zustand
+- jest
+- framer-motion
