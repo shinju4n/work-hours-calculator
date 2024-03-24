@@ -3,15 +3,15 @@ import TextField from "./components/TextField";
 import FlexBox from "./components/FlexBox";
 import { onlyNumbers } from "./utils/regex";
 import { calcEndTime, calculateTimeLeft, convertTimeToString, convertTo12HourFormat } from "./utils/calculator";
-import { AnimatePresence, motion, useIsPresent } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 type Time = {
   hour: number;
   minute: number;
 };
 
 const App: React.FC = () => {
-  const [totalTime, setTotalTime] = React.useState<string | undefined>(undefined);
-  const [week, setWeek] = React.useState<string | undefined>(undefined);
+  const [totalTime, setTotalTime] = React.useState<string>("");
+  const [week, setWeek] = React.useState<string>("");
   const [time, setTime] = React.useState<Time[]>([]);
   const [result, setResult] = React.useState<Time | undefined>(undefined);
   const [leftTime, setLeftTime] = React.useState<Time | undefined>(undefined);
@@ -87,15 +87,11 @@ const App: React.FC = () => {
 export default App;
 
 const Item: FC<{ children: ReactNode; onClick?: () => void }> = ({ children, onClick }) => {
-  const isPresent = useIsPresent();
   const animations = {
-    style: {
-      position: isPresent ? "static" : ("absolute" as any),
-    },
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 900, damping: 40 },
+    initial: { x: -300 },
+    animate: { x: 0 },
+    exit: { x: -500 },
+    transition: { type: "Inertia", stiffness: 900, damping: 40 },
   };
   return (
     <motion.div {...animations} layout onClick={onClick}>
