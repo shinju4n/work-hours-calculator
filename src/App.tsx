@@ -4,6 +4,8 @@ import FlexBox from "./components/FlexBox";
 import { onlyNumbers } from "./utils/regex";
 import { calcEndTime, calculateTimeLeft, convertTimeToString, convertTo12HourFormat } from "./utils/calculator";
 import { AnimatePresence, motion } from "framer-motion";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 type Time = {
   hour: number;
   minute: number;
@@ -45,36 +47,38 @@ const App: React.FC = () => {
         onChange={e => setWeek(onlyNumbers(e.target.value))}
       />
       <AnimatePresence>
-        {time.map((t, index) => (
-          <Item key={index}>
-            <FlexBox gap={1}>
-              <TextField
-                label={`${index + 1}주차 시작 시간`}
-                placeholder="09:00"
-                value={t.hour}
-                onChange={e => {
-                  setTime(prev => {
-                    const newTime = [...prev];
-                    newTime[index].hour = Number(e.target.value);
-                    return newTime;
-                  });
-                }}
-              />
-              <TextField
-                label="분"
-                placeholder="00"
-                value={t.minute}
-                onChange={e => {
-                  setTime(prev => {
-                    const newTime = [...prev];
-                    newTime[index].minute = Number(e.target.value);
-                    return newTime;
-                  });
-                }}
-              />
-            </FlexBox>
-          </Item>
-        ))}
+        <OverFlowHidden>
+          {time.map((t, index) => (
+            <Item key={index}>
+              <FlexBox gap={1}>
+                <TextField
+                  label={`${index + 1}주차 시작 시간`}
+                  placeholder="09:00"
+                  value={t.hour}
+                  onChange={e => {
+                    setTime(prev => {
+                      const newTime = [...prev];
+                      newTime[index].hour = Number(e.target.value);
+                      return newTime;
+                    });
+                  }}
+                />
+                <TextField
+                  label="분"
+                  placeholder="00"
+                  value={t.minute}
+                  onChange={e => {
+                    setTime(prev => {
+                      const newTime = [...prev];
+                      newTime[index].minute = Number(e.target.value);
+                      return newTime;
+                    });
+                  }}
+                />
+              </FlexBox>
+            </Item>
+          ))}
+        </OverFlowHidden>
       </AnimatePresence>
 
       <button onClick={getTime}>계산하기</button>
@@ -91,7 +95,7 @@ const Item: FC<{ children: ReactNode; onClick?: () => void }> = ({ children, onC
     initial: { x: -300 },
     animate: { x: 0 },
     exit: { x: -500 },
-    transition: { type: "Inertia", stiffness: 900, damping: 40 },
+    transition: { type: "Spring", stiffness: 900, damping: 40 },
   };
   return (
     <motion.div {...animations} layout onClick={onClick}>
@@ -99,3 +103,7 @@ const Item: FC<{ children: ReactNode; onClick?: () => void }> = ({ children, onC
     </motion.div>
   );
 };
+
+const OverFlowHidden = styled.div`
+  display: : flex;
+`;
